@@ -1,0 +1,107 @@
+name: 🐛 Bug Report
+description: Create a report so we can reproduce and fix an issue with a template or config snippet.
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: >
+        #### Before submitting a bug, please confirm it has not already been reported by searching the [existing issues](https://github.com/bunkerity/bunkerweb-template-hub/issues?q=is%3Aissue+sort%3Acreated-desc+).
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Tell us what you tried to do, what you expected, and what actually happened.
+      placeholder: Describe the bug, the expected behavior, and the current behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: how-to-reproduce
+    attributes:
+      label: How to reproduce?
+      description: Provide clear steps so we can experience the problem ourselves.
+      placeholder: Step-by-step reproduction instructions.
+    validations:
+      required: true
+  - type: input
+    id: template-name
+    attributes:
+      label: Template name(s)
+      description: Which template(s) or config directories are affected?
+      placeholder: e.g. wordpress, plex, base-hardening
+    validations:
+      required: true
+  - type: checkboxes
+    id: import-method
+    attributes:
+      label: How is the template imported?
+      description: Select all applicable options.
+      options:
+        - label: Plugin bundle
+        - label: Web UI upload
+        - label: Other (explain in Additional context)
+    validations:
+      required: true
+  - type: input
+    id: bunkerweb-version
+    attributes:
+      label: BunkerWeb version
+      description: What version of BunkerWeb are you running?
+      placeholder: e.g. 1.6.5
+    validations:
+      required: true
+  - type: dropdown
+    id: integration
+    attributes:
+      label: What integration are you using?
+      options:
+        - Docker
+        - Swarm
+        - Kubernetes
+        - Linux
+        - All-in-one
+        - Autoconf
+        - Ansible
+        - Vagrant
+        - Azure
+        - Other / Not listed
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: configuration
+    attributes:
+      label: Configuration file(s) or overrides
+      description: >
+        Paste the relevant portion of your configuration (JSON, YAML, .env). **Remove any private data before submitting.**
+      placeholder: Configuration snippet
+      render: text
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: >
+        Copy and paste any relevant log entries. This will be rendered with shell formatting. **Remove private data before submitting.**
+      placeholder: Log output
+      render: shell
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Anything else we should know? Mention related issues, browser details, or deployment nuances.
+  - type: checkboxes
+    id: removed-private-data
+    attributes:
+      label: Removed private data
+      description: We are not responsible for private data that may be included accidentally.
+      options:
+        - label: I removed all private data from configs and logs.
+          required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow the project [Code of Conduct](https://github.com/bunkerity/bunkerweb-template-hub/blob/main/CODE_OF_CONDUCT.md).
+      options:
+        - label: I agree to follow this project's Code of Conduct.
+          required: true

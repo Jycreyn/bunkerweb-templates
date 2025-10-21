@@ -1,0 +1,96 @@
+{
+  "name": "WordPress basic security template providing essential settings for web application protection",
+  "settings": {
+    "SERVER_NAME": "www.example.com",
+    "AUTO_LETS_ENCRYPT": "yes",
+    "USE_LETS_ENCRYPT_STAGING": "no",
+    "USE_LETS_ENCRYPT_WILDCARD": "no",
+    "LETS_ENCRYPT_CHALLENGE": "http",
+    "LETS_ENCRYPT_DNS_PROVIDER": "",
+    "LETS_ENCRYPT_DNS_PROPAGATION": "default",
+    "LETS_ENCRYPT_DNS_CREDENTIAL_ITEM": "",
+    "USE_CUSTOM_SSL": "no",
+    "CUSTOM_SSL_CERT_PRIORITY": "file",
+    "CUSTOM_SSL_CERT": "",
+    "CUSTOM_SSL_KEY": "",
+    "CUSTOM_SSL_CERT_DATA": "",
+    "CUSTOM_SSL_KEY_DATA": "",
+    "USE_REVERSE_PROXY": "yes",
+    "REVERSE_PROXY_URL": "/",
+    "REVERSE_PROXY_HOST": "http://mywp",
+    "DISABLE_DEFAULT_SERVER": "yes",
+    "MAX_CLIENT_SIZE": "50m",
+    "ALLOWED_METHODS": "GET|POST|HEAD|OPTIONS",
+    "USE_LIMIT_REQ": "yes",
+    "LIMIT_REQ_URL": "/",
+    "LIMIT_REQ_RATE": "5r/s",
+    "INTERCEPTED_ERROR_CODES": "400 401 403 404 405 413 429 501 502 503 504",
+    "USE_WHITELIST": "yes",
+    "WHITELIST_IP": "",
+    "WHITELIST_RDNS": ".google.com .googlebot.com .yandex.ru .yandex.net .yandex.com .search.msn.com .baidu.com .baidu.jp .crawl.yahoo.net .fwd.linkedin.com",
+    "WHITELIST_RDNS_GLOBAL": "yes",
+    "WHITELIST_ASN": "",
+    "MODSECURITY_CRS_PLUGINS": "wordpress-rule-exclusions"
+  },
+  "configs": ["modsec/wordpress_false_positives.conf"],
+  "steps": [
+    {
+      "title": "Web service - Front service",
+      "subtitle": "Point the template at your WordPress hostname(s).",
+      "settings": [
+        "SERVER_NAME",
+        "AUTO_LETS_ENCRYPT",
+        "USE_LETS_ENCRYPT_STAGING",
+        "USE_LETS_ENCRYPT_WILDCARD",
+        "LETS_ENCRYPT_CHALLENGE",
+        "LETS_ENCRYPT_DNS_PROVIDER",
+        "LETS_ENCRYPT_DNS_PROPAGATION",
+        "LETS_ENCRYPT_DNS_CREDENTIAL_ITEM",
+        "USE_CUSTOM_SSL",
+        "CUSTOM_SSL_CERT_PRIORITY",
+        "CUSTOM_SSL_CERT",
+        "CUSTOM_SSL_KEY",
+        "CUSTOM_SSL_CERT_DATA",
+        "CUSTOM_SSL_KEY_DATA"
+      ]
+    },
+    {
+      "title": "Web service - Upstream server",
+      "subtitle": "Direct the reverse proxy to your WordPress service.",
+      "settings": [
+        "USE_REVERSE_PROXY",
+        "REVERSE_PROXY_HOST",
+        "REVERSE_PROXY_URL"
+      ]
+    },
+    {
+      "title": "HTTP - WordPress specific settings",
+      "subtitle": "Optimize HTTP settings for WordPress performance and security.",
+      "settings": [
+        "MAX_CLIENT_SIZE",
+        "ALLOWED_METHODS",
+        "USE_LIMIT_REQ",
+        "LIMIT_REQ_URL",
+        "LIMIT_REQ_RATE",
+        "INTERCEPTED_ERROR_CODES"
+      ]
+    },
+    {
+      "title": "SEO - Web crawlers whitelisting",
+      "subtitle": "Whitelist user agents for web crawlers to allow access.",
+      "settings": [
+        "USE_WHITELIST",
+        "WHITELIST_IP",
+        "WHITELIST_RDNS",
+        "WHITELIST_RDNS_GLOBAL",
+        "WHITELIST_ASN"
+      ]
+    },
+    {
+      "title": "Security - Review security tuning",
+      "subtitle": "Keep the WordPress CRS exclusions or tailor them to your site.",
+      "settings": ["MODSECURITY_CRS_PLUGINS"],
+      "configs": ["modsec/wordpress_false_positives.conf"]
+    }
+  ]
+}
