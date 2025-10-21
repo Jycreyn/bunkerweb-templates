@@ -69,7 +69,7 @@ templates/
 
 Every template directory mirrors the structure that BunkerWeb expects when loading custom templates from a plugin:
 
-- `template.json` describes the template name and optional `settings`, `configs`, and `steps`.
+- `template.json` describes the template `id`, user-facing `name`, and optional `settings`, `configs`, and `steps`.
 - `configs/` contains any NGINX fragments referenced in the JSON file.
 - Additional assets (e.g. helper scripts, documentation) can live beside these defaults if they assist users.
 
@@ -77,7 +77,8 @@ A minimal `template.json` might look like:
 
 ```json
 {
-  "name": "wordpress",
+  "id": "wordpress",
+  "name": "WordPress",
   "settings": {
     "SERVER_NAME": "www.example.com",
     "REVERSE_PROXY_HOST": "http://mywp",

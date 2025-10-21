@@ -6,7 +6,7 @@ Use this guide when creating or updating templates for **bunkerweb-templates**. 
 
 Each template lives under `templates/<template-name>/` and should contain:
 
-- `template.json`: The BunkerWeb template definition that declares settings, configs, and optional steps.
+- `template.json`: The BunkerWeb template definition that declares the template `id`, user-facing `name`, and any referenced settings, configs, or steps.
 - `configs/`: Optional directory holding NGINX fragments referenced in `template.json`.
 - Additional assets: Optional files such as helper scripts or a short `README.md` to provide service-specific notes.
 
@@ -20,7 +20,8 @@ Every `template.json` must follow the structure expected by BunkerWeb:
 
 | Property   | Type   | Required | Description                                                                                          |
 | ---------- | ------ | -------- | ---------------------------------------------------------------------------------------------------- |
-| `name`     | string | Yes      | Short identifier exposed to users; usually matches the directory name.                               |
+| `id`       | string | Yes      | Stable identifier for the template; keep it unique and aligned with the directory name.             |
+| `name`     | string | Yes      | User-facing label shown in the UI; keep it concise and descriptive.                                  |
 | `settings` | object | No       | Key/value pairs of multisite settings that override defaults when the template is applied.           |
 | `configs`  | array  | No       | Relative paths (inside the template folder) to NGINX configuration snippets that should be included. |
 | `steps`    | array  | No       | Ordered steps that group related settings and configs for easy-mode guidance.                        |
@@ -29,7 +30,8 @@ Example:
 
 ```json
 {
-  "name": "wordpress",
+  "id": "wordpress",
+  "name": "WordPress",
   "settings": {
     "SERVER_NAME": "www.example.com",
     "REVERSE_PROXY_HOST": "http://mywp",
@@ -62,6 +64,12 @@ Example:
   ]
 }
 ```
+
+#### ID
+
+- Use a lowercase, hyphenated slug that stays consistent between releases (for example `wordpress` or `nextcloud-hardening`).
+- Keep the `id` synchronized with the directory name so users can map files to their template references easily.
+- Treat the `id` as immutable once a template is published; consumers rely on it to detect updates.
 
 #### Settings
 
