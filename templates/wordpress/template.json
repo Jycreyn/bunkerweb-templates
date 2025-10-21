@@ -1,4 +1,5 @@
 {
+  "id": "wordpress",
   "name": "WordPress secure template with essential hardening defaults",
   "settings": {
     "SERVER_NAME": "www.example.com",

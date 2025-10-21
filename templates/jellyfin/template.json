@@ -1,4 +1,5 @@
 {
+  "id": "jellyfin",
   "name": "Jellyfin media streaming template with reverse proxy tuning",
   "settings": {
     "SERVER_NAME": "www.example.com",

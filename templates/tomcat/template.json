@@ -1,4 +1,5 @@
 {
+  "id": "tomcat",
   "name": "Tomcat reverse proxy template with servlet-friendly defaults",
   "settings": {
     "SERVER_NAME": "www.example.com",

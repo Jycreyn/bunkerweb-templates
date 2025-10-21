@@ -1,4 +1,5 @@
 {
+  "id": "nextcloud",
   "name": "Nextcloud secure template with WebDAV-aware defaults",
   "settings": {
     "SERVER_NAME": "www.example.com",

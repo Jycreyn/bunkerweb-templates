@@ -1,4 +1,5 @@
 {
+  "id": "drupal",
   "name": "Drupal secure template with CMS-aware defaults",
   "settings": {
     "SERVER_NAME": "www.example.com",
