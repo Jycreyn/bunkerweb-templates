@@ -1,0 +1,68 @@
+{
+  "name": "Tomcat reverse proxy template with servlet-friendly defaults",
+  "settings": {
+    "SERVER_NAME": "www.example.com",
+    "AUTO_LETS_ENCRYPT": "yes",
+    "USE_LETS_ENCRYPT_STAGING": "no",
+    "USE_LETS_ENCRYPT_WILDCARD": "no",
+    "LETS_ENCRYPT_CHALLENGE": "http",
+    "LETS_ENCRYPT_DNS_PROVIDER": "",
+    "LETS_ENCRYPT_DNS_PROPAGATION": "default",
+    "LETS_ENCRYPT_DNS_CREDENTIAL_ITEM": "",
+    "USE_CUSTOM_SSL": "no",
+    "CUSTOM_SSL_CERT_PRIORITY": "file",
+    "CUSTOM_SSL_CERT": "",
+    "CUSTOM_SSL_KEY": "",
+    "CUSTOM_SSL_CERT_DATA": "",
+    "CUSTOM_SSL_KEY_DATA": "",
+    "USE_REVERSE_PROXY": "yes",
+    "REVERSE_PROXY_URL": "/",
+    "REVERSE_PROXY_HOST": "http://mytomcat:8080",
+    "SERVE_FILES": "no",
+    "USE_CLIENT_CACHE": "yes",
+    "USE_GZIP": "yes",
+    "MAX_CLIENT_SIZE": "100m",
+    "ALLOWED_METHODS": "GET|POST|HEAD|PUT|DELETE|OPTIONS"
+  },
+  "steps": [
+    {
+      "title": "Web service - Front service",
+      "subtitle": "Point the template at your Tomcat hostname(s) and TLS options.",
+      "settings": [
+        "SERVER_NAME",
+        "AUTO_LETS_ENCRYPT",
+        "USE_LETS_ENCRYPT_STAGING",
+        "USE_LETS_ENCRYPT_WILDCARD",
+        "LETS_ENCRYPT_CHALLENGE",
+        "LETS_ENCRYPT_DNS_PROVIDER",
+        "LETS_ENCRYPT_DNS_PROPAGATION",
+        "LETS_ENCRYPT_DNS_CREDENTIAL_ITEM",
+        "USE_CUSTOM_SSL",
+        "CUSTOM_SSL_CERT_PRIORITY",
+        "CUSTOM_SSL_CERT",
+        "CUSTOM_SSL_KEY",
+        "CUSTOM_SSL_CERT_DATA",
+        "CUSTOM_SSL_KEY_DATA"
+      ]
+    },
+    {
+      "title": "Web service - Upstream server",
+      "subtitle": "Direct the reverse proxy toward your Tomcat service.",
+      "settings": [
+        "USE_REVERSE_PROXY",
+        "REVERSE_PROXY_HOST",
+        "REVERSE_PROXY_URL"
+      ]
+    },
+    {
+      "title": "Performance - Client optimization",
+      "subtitle": "Control caching and compression behaviour.",
+      "settings": ["USE_CLIENT_CACHE", "SERVE_FILES", "USE_GZIP"]
+    },
+    {
+      "title": "HTTP - Servlet tuning",
+      "subtitle": "Adjust request limits and allowed methods for Tomcat apps.",
+      "settings": ["MAX_CLIENT_SIZE", "ALLOWED_METHODS"]
+    }
+  ]
+}

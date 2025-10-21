@@ -2,7 +2,6 @@
   "name": "Nextcloud secure template with WebDAV-aware defaults",
   "settings": {
     "SERVER_NAME": "www.example.com",
-    "DISABLE_DEFAULT_SERVER": "yes",
     "AUTO_LETS_ENCRYPT": "yes",
     "USE_LETS_ENCRYPT_STAGING": "no",
     "USE_LETS_ENCRYPT_WILDCARD": "no",
@@ -42,7 +41,6 @@
       "subtitle": "Point BunkerWeb at your Nextcloud domains and TLS options.",
       "settings": [
         "SERVER_NAME",
-        "DISABLE_DEFAULT_SERVER",
         "AUTO_LETS_ENCRYPT",
         "USE_LETS_ENCRYPT_STAGING",
         "USE_LETS_ENCRYPT_WILDCARD",

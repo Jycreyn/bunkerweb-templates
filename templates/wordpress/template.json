@@ -18,7 +18,6 @@
     "USE_REVERSE_PROXY": "yes",
     "REVERSE_PROXY_URL": "/",
     "REVERSE_PROXY_HOST": "http://mywp",
-    "DISABLE_DEFAULT_SERVER": "yes",
     "MAX_CLIENT_SIZE": "50m",
     "ALLOWED_METHODS": "GET|POST|HEAD|OPTIONS",
     "USE_LIMIT_REQ": "yes",
@@ -30,6 +29,9 @@
     "WHITELIST_RDNS": ".google.com .googlebot.com .yandex.ru .yandex.net .yandex.com .search.msn.com .baidu.com .baidu.jp .crawl.yahoo.net .fwd.linkedin.com",
     "WHITELIST_RDNS_GLOBAL": "yes",
     "WHITELIST_ASN": "",
+    "SERVE_FILES": "no",
+    "USE_CLIENT_CACHE": "yes",
+    "USE_GZIP": "yes",
     "MODSECURITY_CRS_PLUGINS": "wordpress-rule-exclusions"
   },
   "configs": ["modsec/wordpress_false_positives.conf"],
@@ -85,6 +87,11 @@
         "WHITELIST_RDNS_GLOBAL",
         "WHITELIST_ASN"
       ]
+    },
+    {
+      "title": "Performance - Client optimization",
+      "subtitle": "Control caching and compression behaviour.",
+      "settings": ["USE_CLIENT_CACHE", "SERVE_FILES", "USE_GZIP"]
     },
     {
       "title": "Security - Review security tuning",
