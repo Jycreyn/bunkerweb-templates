@@ -1,5 +1,5 @@
 {
-  "name": "WordPress basic security template providing essential settings for web application protection",
+  "name": "WordPress secure template with essential hardening defaults",
   "settings": {
     "SERVER_NAME": "www.example.com",
     "AUTO_LETS_ENCRYPT": "yes",
