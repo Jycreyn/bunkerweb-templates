@@ -1,6 +1,6 @@
 # Template Author Guide
 
-Use this guide when creating or updating templates for the **bunkerweb-template-hub**. Following these expectations keeps every template clear, consistent, and easy to maintain.
+Use this guide when creating or updating templates for **bunkerweb-templates**. Following these expectations keeps every template clear, consistent, and easy to maintain.
 
 ## Template Essentials
 

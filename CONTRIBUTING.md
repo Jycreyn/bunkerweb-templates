@@ -1,4 +1,4 @@
-# Contributing to bunkerweb-template-hub
+# Contributing to bunkerweb-templates
 
 Thanks for helping grow the BunkerWeb template ecosystem! This repository thrives when the community shares knowledge, fixes bugs, and keeps templates up to date for new scenarios. The information below covers the end-to-end process for contributing.
 
@@ -26,7 +26,7 @@ We follow the tone and values of the BunkerWeb community: be respectful, be incl
 
 ## Template Submission Guidelines
 
-To keep the hub tidy and easy to navigate, please align with these conventions:
+To keep the templates repository tidy and easy to navigate, please align with these conventions:
 
 - **Naming**: Use lowercase-kebab-case for directories (e.g. `wordpress`, `plex`, `nextcloud-hardening`). Prefer descriptive names that reflect the service or goal.
 - **Folder structure**: Place template assets inside `templates/<template-name>/`. Avoid adding extra environment subdirectories; each template stands alone. At minimum, include a `template.json` that follows the BunkerWeb schema.

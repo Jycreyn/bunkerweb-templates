@@ -1,18 +1,18 @@
-# bunkerweb-template-hub
+# bunkerweb-templates
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3" /></a>
-  <a href="https://github.com/bunkerity/bunkerweb-template-hub/stargazers"><img src="https://img.shields.io/github/stars/bunkerity/bunkerweb-template-hub?color=ffb400&logo=github" alt="GitHub stars" /></a>
-  <a href="https://github.com/bunkerity/bunkerweb-template-hub/issues"><img src="https://img.shields.io/github/issues/bunkerity/bunkerweb-template-hub?label=issues" alt="Open issues" /></a>
-  <a href="https://github.com/bunkerity/bunkerweb-template-hub/pulls"><img src="https://img.shields.io/github/issues-pr/bunkerity/bunkerweb-template-hub?label=PRs" alt="Open pull requests" /></a>
-  <a href="https://github.com/bunkerity/bunkerweb-template-hub/commits"><img src="https://img.shields.io/github/last-commit/bunkerity/bunkerweb-template-hub?label=last%20update" alt="Last update" /></a>
+  <a href="https://github.com/bunkerity/bunkerweb-templates/stargazers"><img src="https://img.shields.io/github/stars/bunkerity/bunkerweb-templates?color=ffb400&logo=github" alt="GitHub stars" /></a>
+  <a href="https://github.com/bunkerity/bunkerweb-templates/issues"><img src="https://img.shields.io/github/issues/bunkerity/bunkerweb-templates?label=issues" alt="Open issues" /></a>
+  <a href="https://github.com/bunkerity/bunkerweb-templates/pulls"><img src="https://img.shields.io/github/issues-pr/bunkerity/bunkerweb-templates?label=PRs" alt="Open pull requests" /></a>
+  <a href="https://github.com/bunkerity/bunkerweb-templates/commits"><img src="https://img.shields.io/github/last-commit/bunkerity/bunkerweb-templates?label=last%20update" alt="Last update" /></a>
   <a href="https://discord.gg/YEdMKqztMZ"><img src="https://img.shields.io/badge/community-Discord-5865F2?logo=discord&logoColor=white" alt="Join the Discord" /></a>
   <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome" /></a>
 </p>
 
 > Ready-to-run BunkerWeb configurations for popular services, fully editable to fit your stack.
 
-The **bunkerweb-template-hub** collects community-maintained templates that deliver a working [BunkerWeb](https://www.bunkerweb.io) configuration for well-known services such as WordPress, Plex, Nextcloud, or self-hosted dashboards. Each template mirrors BunkerWeb’s template specification, giving you a safe baseline that you can extend or reshape for your environment.
+The **bunkerweb-templates** repository collects community-maintained templates that deliver a working [BunkerWeb](https://www.bunkerweb.io) configuration for well-known services such as WordPress, Plex, Nextcloud, or self-hosted dashboards. Each template mirrors BunkerWeb’s template specification, giving you a safe baseline that you can extend or reshape for your environment.
 
 All templates and documentation in this repository are released under the [GNU General Public License v3.0](LICENSE), in line with the main BunkerWeb project.
 
@@ -34,7 +34,7 @@ BunkerWeb includes three predefined templates (`low`, `medium`, `high`) that bun
 This repository packages those JSON definitions alongside their configuration snippets, giving you a safe baseline that you can drop into BunkerWeb and adapt to any deployment method.
 
 ## Table of Contents
-- [bunkerweb-template-hub](#bunkerweb-template-hub)
+- [bunkerweb-templates](#bunkerweb-templates)
   - [Highlights](#highlights)
   - [How Templates Work](#how-templates-work)
   - [Table of Contents](#table-of-contents)
