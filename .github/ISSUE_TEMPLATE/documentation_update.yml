@@ -1,0 +1,62 @@
+name: 📝 Documentation Update
+description: Improve guides, metadata, or contributor docs without changing template behavior.
+title: "[Docs] "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: >
+        #### Before requesting a documentation update, please search the
+        [existing issues](https://github.com/bunkerity/bunkerweb-template-hub/issues?q=is%3Aissue+sort%3Acreated-desc+)
+        to avoid duplicates.
+  - type: checkboxes
+    id: doc-scope
+    attributes:
+      label: Area of documentation
+      description: Select everything that applies.
+      options:
+        - label: Template README or usage guide
+        - label: Metadata or manifest files
+        - label: Contributor or authoring docs
+        - label: Other (explain below)
+  - type: textarea
+    id: summary
+    attributes:
+      label: What needs to change?
+      description: Describe the issue and what readers struggle with today.
+      placeholder: Briefly explain the current documentation gap or problem.
+    validations:
+      required: true
+  - type: textarea
+    id: location
+    attributes:
+      label: Where is the documentation?
+      description: Provide file paths, sections, or URLs that need updates.
+      placeholder: e.g. templates/wordpress/README.md#Configuration
+    validations:
+      required: true
+  - type: textarea
+    id: proposed-changes
+    attributes:
+      label: Proposed wording or structure
+      description: Share the exact text, outline, or screenshots you suggest.
+      placeholder: Suggested updates, bullet points, or sample snippets.
+  - type: textarea
+    id: references
+    attributes:
+      label: References or supporting material
+      description: Link to documentation, discussions, or sources that support the change.
+      placeholder: URLs, tools, or community threads.
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Mention deployment details, related issues, or approvals needed.
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow the project [Code of Conduct](https://github.com/bunkerity/bunkerweb-template-hub/blob/main/CODE_OF_CONDUCT.md).
+      options:
+        - label: I agree to follow this project's Code of Conduct.
+          required: true

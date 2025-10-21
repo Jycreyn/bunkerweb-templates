@@ -1,0 +1,85 @@
+name: ✨ Template Request
+description: Suggest a new service template or major enhancement to an existing one.
+title: "[Template] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: >
+        #### Before opening a template request, please search the
+        [existing issues](https://github.com/bunkerity/bunkerweb-template-hub/issues?q=is%3Aissue+sort%3Acreated-desc+)
+        to make sure a similar idea is not already being tracked.
+  - type: input
+    id: service-name
+    attributes:
+      label: Service or scenario
+      description: What service (e.g. WordPress, Plex) or scenario should the template support?
+      placeholder: e.g. Jellyfin media server
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Who needs this template?
+      description: Describe the deployment context and the users who would benefit.
+      placeholder: Who is running this service and in which environment?
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: Why it matters
+      description: Explain the problem this template solves or the value it adds.
+      placeholder: Business or operational reasons for the request.
+    validations:
+      required: true
+  - type: dropdown
+    id: integration
+    attributes:
+      label: Preferred integration
+      description: Select the primary environment you expect to use.
+      options:
+        - Docker
+        - Swarm
+        - Kubernetes
+        - Linux
+        - All-in-one
+        - Autoconf
+        - Ansible
+        - Vagrant
+        - Azure
+        - Other / Not listed
+      default: 0
+  - type: textarea
+    id: desired-config
+    attributes:
+      label: Desired configuration or features
+      description: List required settings, NGINX snippets, ports, or middleware that should be included.
+      placeholder: Must-have directives, optional tuning, health checks, etc.
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Related resources
+      description: Link to documentation, existing configs, or community examples that guide the implementation.
+      placeholder: Official docs, GitHub repos, tutorials, forum threads.
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Willing to contribute?
+      description: Let us know how you can help move this forward.
+      options:
+        - label: I can submit a pull request for this template.
+        - label: I can help test or provide feedback.
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Mention related issues, blockers, or special deployment notes.
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow the project [Code of Conduct](https://github.com/bunkerity/bunkerweb-template-hub/blob/main/CODE_OF_CONDUCT.md).
+      options:
+        - label: I agree to follow this project's Code of Conduct.
+          required: true
