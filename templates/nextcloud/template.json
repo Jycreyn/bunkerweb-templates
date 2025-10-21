@@ -1,0 +1,101 @@
+{
+  "name": "Nextcloud secure template with WebDAV-aware defaults",
+  "settings": {
+    "SERVER_NAME": "www.example.com",
+    "DISABLE_DEFAULT_SERVER": "yes",
+    "AUTO_LETS_ENCRYPT": "yes",
+    "USE_LETS_ENCRYPT_STAGING": "no",
+    "USE_LETS_ENCRYPT_WILDCARD": "no",
+    "LETS_ENCRYPT_CHALLENGE": "http",
+    "LETS_ENCRYPT_DNS_PROVIDER": "",
+    "LETS_ENCRYPT_DNS_PROPAGATION": "default",
+    "LETS_ENCRYPT_DNS_CREDENTIAL_ITEM": "",
+    "USE_CUSTOM_SSL": "no",
+    "CUSTOM_SSL_CERT_PRIORITY": "file",
+    "CUSTOM_SSL_CERT": "",
+    "CUSTOM_SSL_KEY": "",
+    "CUSTOM_SSL_CERT_DATA": "",
+    "CUSTOM_SSL_KEY_DATA": "",
+    "USE_REVERSE_PROXY": "yes",
+    "REVERSE_PROXY_URL": "/",
+    "REVERSE_PROXY_HOST": "http://nextcloud",
+    "MAX_CLIENT_SIZE": "10G",
+    "ALLOWED_METHODS": "GET|POST|HEAD|COPY|DELETE|LOCK|MKCOL|MOVE|PROPFIND|PROPPATCH|PUT|UNLOCK|OPTIONS|REPORT",
+    "USE_LIMIT_REQ": "yes",
+    "LIMIT_REQ_URL_1": "/apps",
+    "LIMIT_REQ_RATE_1": "5r/s",
+    "LIMIT_REQ_URL_2": "/apps/text/session/sync",
+    "LIMIT_REQ_RATE_2": "8r/s",
+    "LIMIT_REQ_URL_3": "/core/preview",
+    "LIMIT_REQ_RATE_3": "5r/s",
+    "USE_CLIENT_CACHE": "yes",
+    "SERVE_FILES": "no",
+    "USE_GZIP": "yes",
+    "X_FRAME_OPTIONS": "SAMEORIGIN",
+    "BAD_BEHAVIOR_STATUS_CODES": "400 401 403 405 444",
+    "MODSECURITY_CRS_PLUGINS": "nextcloud-rule-exclusions"
+  },
+  "configs": ["modsec/nextcloud_false_positives.conf"],
+  "steps": [
+    {
+      "title": "Web service - Front door",
+      "subtitle": "Point BunkerWeb at your Nextcloud domains and TLS options.",
+      "settings": [
+        "SERVER_NAME",
+        "DISABLE_DEFAULT_SERVER",
+        "AUTO_LETS_ENCRYPT",
+        "USE_LETS_ENCRYPT_STAGING",
+        "USE_LETS_ENCRYPT_WILDCARD",
+        "LETS_ENCRYPT_CHALLENGE",
+        "LETS_ENCRYPT_DNS_PROVIDER",
+        "LETS_ENCRYPT_DNS_PROPAGATION",
+        "LETS_ENCRYPT_DNS_CREDENTIAL_ITEM",
+        "USE_CUSTOM_SSL",
+        "CUSTOM_SSL_CERT_PRIORITY",
+        "CUSTOM_SSL_CERT",
+        "CUSTOM_SSL_KEY",
+        "CUSTOM_SSL_CERT_DATA",
+        "CUSTOM_SSL_KEY_DATA"
+      ]
+    },
+    {
+      "title": "Web service - Upstream service",
+      "subtitle": "Send traffic to your Nextcloud backend.",
+      "settings": [
+        "USE_REVERSE_PROXY",
+        "REVERSE_PROXY_HOST",
+        "REVERSE_PROXY_URL"
+      ]
+    },
+    {
+      "title": "HTTP - WebDAV uploads and sync",
+      "subtitle": "Tune upload size, WebDAV verbs, and rate limiting for Nextcloud.",
+      "settings": [
+        "MAX_CLIENT_SIZE",
+        "ALLOWED_METHODS",
+        "USE_LIMIT_REQ",
+        "LIMIT_REQ_URL_1",
+        "LIMIT_REQ_RATE_1",
+        "LIMIT_REQ_URL_2",
+        "LIMIT_REQ_RATE_2",
+        "LIMIT_REQ_URL_3",
+        "LIMIT_REQ_RATE_3"
+      ]
+    },
+    {
+      "title": "Performance - Client optimization",
+      "subtitle": "Control caching and compression behaviour.",
+      "settings": ["USE_CLIENT_CACHE", "SERVE_FILES", "USE_GZIP"]
+    },
+    {
+      "title": "Security - Headers and CRS exclusions",
+      "subtitle": "Keep security headers aligned and enable Nextcloud CRS plugin.",
+      "settings": [
+        "X_FRAME_OPTIONS",
+        "BAD_BEHAVIOR_STATUS_CODES",
+        "MODSECURITY_CRS_PLUGINS"
+      ],
+      "configs": ["modsec/nextcloud_false_positives.conf"]
+    }
+  ]
+}
