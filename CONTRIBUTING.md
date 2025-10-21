@@ -10,15 +10,19 @@ We follow the tone and values of the BunkerWeb community: be respectful, be incl
 
 1. **Fork** this repository and clone your fork locally.
 2. **Create a branch** named after your change, e.g. `feature/wordpress-template`.
-3. **Implement your update** (add a template, adjust docs, etc.) following the guidelines in this document and in [TEMPLATE_GUIDE.md](TEMPLATE_GUIDE.md).
-4. **Test and lint** your contribution. For templates, validate configuration files where possible (e.g. `docker compose config`, `kubectl apply --server-dry-run`, schema validation).
-5. **Commit** with clear messages that describe the change and reference any related issues.
-6. **Open a Pull Request** against `main`:
+3. **Install tooling and Git hooks** so your changes match the repository style:
+   - Install [`pre-commit`](https://pre-commit.com/) (`pipx install pre-commit` or `pip install pre-commit` inside a virtualenv).
+   - Install the hooks: `pre-commit install`.
+   - Ensure the `prettier` CLI is available on your PATH (for example `npm install --global prettier` or via your package manager) so the formatting hook can run.
+4. **Implement your update** (add a template, adjust docs, etc.) following the guidelines in this document and in [TEMPLATE_GUIDE.md](TEMPLATE_GUIDE.md).
+5. **Test and lint** your contribution. Run `pre-commit run --all-files` and address any issues it reports. For templates, also validate configuration files where possible (e.g. `docker compose config`, `kubectl apply --server-dry-run`, schema validation).
+6. **Commit** with clear messages that describe the change and reference any related issues.
+7. **Open a Pull Request** against `main`:
    - Summarize the motivation and changes.
    - Highlight testing steps and expected outcomes.
    - Link issues or discussions that provide additional context.
-7. **Participate in the review**. Address comments, push revisions, and keep the conversation open and collaborative.
-8. Once approved, a maintainer will merge your PR.
+8. **Participate in the review**. Address comments, push revisions, and keep the conversation open and collaborative.
+9. Once approved, a maintainer will merge your PR.
 
 ## Template Submission Guidelines
 
@@ -43,6 +47,7 @@ Refer to [TEMPLATE_GUIDE.md](TEMPLATE_GUIDE.md) for detailed expectations and ex
 
 Before submitting, double-check the following:
 
+- [ ] I installed the pre-commit hooks and ran `pre-commit run --all-files`.
 - [ ] My branch builds or validates locally (where applicable).
 - [ ] The template follows the documented folder structure and naming conventions.
 - [ ] `template.json` is valid and references only files included in the template directory.

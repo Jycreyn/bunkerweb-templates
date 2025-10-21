@@ -142,6 +142,8 @@ We welcome community contributions! Review the [CONTRIBUTING.md](CONTRIBUTING.md
 
 Maintainers and community members will review submissions collaboratively to ensure templates stay reliable and helpful.
 
+Before you push, install the repository’s `pre-commit` hooks (`pre-commit install`) and run `pre-commit run --all-files` so formatting, spell-check, and secret scans pass locally.
+
 ## Community
 
 Questions or ideas? Join the conversation with fellow BunkerWeb maintainers and users:

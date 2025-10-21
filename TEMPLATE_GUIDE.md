@@ -104,6 +104,7 @@ For deeper background on BunkerWeb concepts referenced in this guide, see the of
 
 ## Formatting Guidelines
 
+- **Pre-commit hooks**: Install `pre-commit`, run `pre-commit install`, and execute `pre-commit run --all-files` before pushing so the shared formatting (Prettier, Codespell, Gitleaks) is applied consistently.
 - **Directory names**: Lowercase, words separated by hyphens.
 - **JSON**: Two spaces for indentation, double quotes for keys and strings, trailing commas avoided.
 - **NGINX snippets**: Keep indentation consistent; add short comments when behavior is non-obvious.
