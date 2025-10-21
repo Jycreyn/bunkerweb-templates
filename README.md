@@ -1,4 +1,6 @@
-# bunkerweb-templates
+<p align="center">
+	<img alt="BunkerWeb Templates logo" src="./assets/logo.png" width=350 />
+</p>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3" /></a>
@@ -34,16 +36,15 @@ BunkerWeb includes three predefined templates (`low`, `medium`, `high`) that bun
 This repository packages those JSON definitions alongside their configuration snippets, giving you a safe baseline that you can drop into BunkerWeb and adapt to any deployment method.
 
 ## Table of Contents
-- [bunkerweb-templates](#bunkerweb-templates)
-  - [Highlights](#highlights)
-  - [How Templates Work](#how-templates-work)
-  - [Table of Contents](#table-of-contents)
-  - [Getting Started](#getting-started)
-  - [Template Anatomy](#template-anatomy)
-  - [Repository Layout](#repository-layout)
-  - [Contributing](#contributing)
-  - [Community](#community)
-  - [License](#license)
+- [Highlights](#highlights)
+- [How Templates Work](#how-templates-work)
+- [Table of Contents](#table-of-contents)
+- [Getting Started](#getting-started)
+- [Template Anatomy](#template-anatomy)
+- [Repository Layout](#repository-layout)
+- [Contributing](#contributing)
+- [Community](#community)
+- [License](#license)
 
 ## Getting Started
 
