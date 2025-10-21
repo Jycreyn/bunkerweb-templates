@@ -1,0 +1,79 @@
+{
+  "name": "Drupal secure template with CMS-aware defaults",
+  "settings": {
+    "SERVER_NAME": "www.example.com",
+    "AUTO_LETS_ENCRYPT": "yes",
+    "USE_LETS_ENCRYPT_STAGING": "no",
+    "USE_LETS_ENCRYPT_WILDCARD": "no",
+    "LETS_ENCRYPT_CHALLENGE": "http",
+    "LETS_ENCRYPT_DNS_PROVIDER": "",
+    "LETS_ENCRYPT_DNS_PROPAGATION": "default",
+    "LETS_ENCRYPT_DNS_CREDENTIAL_ITEM": "",
+    "USE_CUSTOM_SSL": "no",
+    "CUSTOM_SSL_CERT_PRIORITY": "file",
+    "CUSTOM_SSL_CERT": "",
+    "CUSTOM_SSL_KEY": "",
+    "CUSTOM_SSL_CERT_DATA": "",
+    "CUSTOM_SSL_KEY_DATA": "",
+    "USE_REVERSE_PROXY": "yes",
+    "REVERSE_PROXY_URL": "/",
+    "REVERSE_PROXY_HOST": "http://mydrupal",
+    "SERVE_FILES": "no",
+    "USE_CLIENT_CACHE": "yes",
+    "USE_GZIP": "yes",
+    "USE_LIMIT_REQ": "yes",
+    "LIMIT_REQ_URL": "/",
+    "LIMIT_REQ_RATE": "2r/s",
+    "LIMIT_REQ_URL_1": "/core/install.php",
+    "LIMIT_REQ_RATE_1": "5r/s",
+    "MODSECURITY_CRS_PLUGINS": "drupal-rule-exclusions"
+  },
+  "steps": [
+    {
+      "title": "Web service - Front service",
+      "subtitle": "Point the template at your Drupal hostname(s) and TLS configuration.",
+      "settings": [
+        "SERVER_NAME",
+        "AUTO_LETS_ENCRYPT",
+        "USE_LETS_ENCRYPT_STAGING",
+        "USE_LETS_ENCRYPT_WILDCARD",
+        "LETS_ENCRYPT_CHALLENGE",
+        "LETS_ENCRYPT_DNS_PROVIDER",
+        "LETS_ENCRYPT_DNS_PROPAGATION",
+        "LETS_ENCRYPT_DNS_CREDENTIAL_ITEM",
+        "USE_CUSTOM_SSL",
+        "CUSTOM_SSL_CERT_PRIORITY",
+        "CUSTOM_SSL_CERT",
+        "CUSTOM_SSL_KEY",
+        "CUSTOM_SSL_CERT_DATA",
+        "CUSTOM_SSL_KEY_DATA"
+      ]
+    },
+    {
+      "title": "Web service - Upstream server",
+      "subtitle": "Direct the reverse proxy toward your Drupal backend.",
+      "settings": [
+        "USE_REVERSE_PROXY",
+        "REVERSE_PROXY_HOST",
+        "REVERSE_PROXY_URL"
+      ]
+    },
+    {
+      "title": "Performance - Static assets and caching",
+      "subtitle": "Tune how Drupal assets are served and cached.",
+      "settings": ["SERVE_FILES", "USE_CLIENT_CACHE", "USE_GZIP"]
+    },
+    {
+      "title": "Security - Drupal hardening",
+      "subtitle": "Rate-limit the installer and enable Drupal CRS exclusions.",
+      "settings": [
+        "USE_LIMIT_REQ",
+        "LIMIT_REQ_URL",
+        "LIMIT_REQ_RATE",
+        "LIMIT_REQ_URL_1",
+        "LIMIT_REQ_RATE_1",
+        "MODSECURITY_CRS_PLUGINS"
+      ]
+    }
+  ]
+}
