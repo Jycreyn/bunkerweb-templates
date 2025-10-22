@@ -99,8 +99,8 @@ While not required by BunkerWeb, consider adding:
 
 You can deliver templates in two ways:
 
-1. **Plugin bundle** – Place the template directory inside a plugin’s `templates/` folder (as shown above). When the plugin is installed, the template becomes available automatically.
-2. **UI upload** – From the BunkerWeb web UI, open the `Templates` page and upload the `template.json` (and its accompanying configs as a zip archive). This is the quickest path for testing or sharing a template without packaging a plugin.
+1. **UI Raw import (recommended)** – From the BunkerWeb web UI, open the `Templates` page, click **Create new template**, switch to **Raw** mode, paste the contents of `template.json`, and add any referenced config files using the in-browser editor before saving. This is the fastest way to test or share a template without packaging a plugin.
+2. **Plugin bundle** – Place the template directory inside a plugin’s `templates/` folder (as shown above). When the plugin is installed, the template becomes available automatically.
 
 Regardless of the delivery method, keep the folder layout identical so users can switch between approaches effortlessly.
 

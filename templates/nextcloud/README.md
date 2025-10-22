@@ -20,8 +20,9 @@ your instance stays reachable and protected.
 ## Setup
 
 1. **Import the template**
+   - *UI import (recommended)*: open the BunkerWeb `Templates` page, click **Create new template**, switch to
+     **Raw** mode, paste the contents of `template.json`, and save.
    - *Plugin bundle*: copy the `nextcloud/` directory into your BunkerWeb plugin `templates/` folder.
-   - *UI upload*: compress the directory and upload it on the `Templates` page of the BunkerWeb UI.
 2. **Assign the template** to the service that fronts Nextcloud (set `USE_TEMPLATE=nextcloud` or pick it
    from the easy-mode UI).
 3. **Adjust the TLS and domain entries** so `SERVER_NAME` and certificate options match your deployment.
