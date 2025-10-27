@@ -60,7 +60,7 @@ representative at an online or offline event.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the project maintainers via the [Bunkerity Discord](https://discord.gg/YEdMKqztMZ) (`#🧩・templates`)
-or by emailing [tdiot@bunkerity.com](mailto:tdiot@bunkerity.com). All complaints will be reviewed and
+or by emailing [contact@bunkerity.com](mailto:contact@bunkerity.com). All complaints will be reviewed and
 investigated promptly and fairly.
 
 All project maintainers are obligated to respect the privacy and security of
