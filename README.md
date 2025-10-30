@@ -40,6 +40,7 @@ This repository packages those JSON definitions alongside their configuration sn
 - [How Templates Work](#how-templates-work)
 - [Table of Contents](#table-of-contents)
 - [Getting Started](#getting-started)
+- [Available Templates](#available-templates)
 - [Template Anatomy](#template-anatomy)
 - [Repository Layout](#repository-layout)
 - [Contributing](#contributing)
@@ -53,6 +54,16 @@ This repository packages those JSON definitions alongside their configuration sn
 3. **Import the template:** Either drop the directory into a plugin’s `templates/` folder or upload the JSON bundle from the BunkerWeb web UI on the `Templates` page, then reference it with the `USE_TEMPLATE` setting or the easy-mode workflow.
 4. **Adjust to taste:** Edit the JSON and accompanying configuration snippets so the template reflects your infrastructure.
 5. **Share feedback:** Open an issue or pull request if you find improvements, new services, or fixes worth sharing.
+
+## Available Templates
+
+| Template                          | Summary                                               | Directory              |
+| --------------------------------- | ----------------------------------------------------- | ---------------------- |
+| [Drupal](templates/drupal/)       | Secure template with CMS-aware defaults               | `templates/drupal/`    |
+| [Jellyfin](templates/jellyfin/)   | Media streaming template with reverse proxy tuning    | `templates/jellyfin/`  |
+| [Nextcloud](templates/nextcloud/) | Secure template with WebDAV-aware defaults            | `templates/nextcloud/` |
+| [Tomcat](templates/tomcat/)       | Reverse proxy template with servlet-friendly defaults | `templates/tomcat/`    |
+| [WordPress](templates/wordpress/) | Secure template with essential hardening defaults     | `templates/wordpress/` |
 
 ```text
 templates/
