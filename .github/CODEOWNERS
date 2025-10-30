@@ -1,0 +1,12 @@
+# Root-level files default to the current maintainer until more granular ownership is defined.
+/* @TheophileDiot
+
+# GitHub configuration files.
+/.github/ @TheophileDiot
+
+# Existing template directories; update as new templates are added.
+/templates/drupal/ @TheophileDiot
+/templates/jellyfin/ @TheophileDiot
+/templates/nextcloud/ @TheophileDiot
+/templates/tomcat/ @TheophileDiot
+/templates/wordpress/ @TheophileDiot

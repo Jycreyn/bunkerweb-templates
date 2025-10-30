@@ -1,0 +1,89 @@
+name: Manual Template Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to create or update for this release (for example, v1.2.3)"
+        required: true
+        type: string
+      release_name:
+        description: "Optional release name (defaults to Templates release <tag>)"
+        required: false
+        type: string
+        default: ""
+      release_notes:
+        description: "Optional release notes shown on the release page"
+        required: false
+        type: string
+        default: ""
+
+jobs:
+  package-and-release:
+    name: Package templates and publish release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: manual-template-release-${{ inputs.tag }}
+      cancel-in-progress: true
+    env:
+      RELEASE_DIR: release-assets
+      ARCHIVE_NAME: templates-${{ inputs.tag }}.zip
+      RESOLVED_RELEASE_NAME: ${{ inputs.release_name != '' && inputs.release_name || format('Templates release {0}', inputs.tag) }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          fetch-depth: 0
+
+      - name: Package templates into a single zip archive
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          release_dir="${RELEASE_DIR}"
+          templates_root="templates"
+          archive_name="${ARCHIVE_NAME}"
+          zip_path="${release_dir}/${archive_name}"
+
+          mkdir -p "${release_dir}"
+
+          if [[ ! -d "${templates_root}" ]]; then
+            echo "::error::Templates directory not found at ${templates_root}"
+            exit 1
+          fi
+
+          if ! command -v zip >/dev/null 2>&1; then
+            echo "::error::zip command not available on runner"
+            exit 1
+          fi
+
+          mapfile -t templates < <(find "${templates_root}" -mindepth 1 -maxdepth 1 -type d -printf '%P\n' | sort)
+
+          if [[ ${#templates[@]} -eq 0 ]]; then
+            echo "::error::No template directories found under ${templates_root}"
+            exit 1
+          fi
+
+          rm -f "${zip_path}"
+          echo "Creating combined archive ${zip_path} containing ${#templates[@]} template directories"
+          zip -r -9 "${zip_path}" "${templates_root}"
+
+          if [[ ! -f "${zip_path}" ]]; then
+            echo "::error::Archive was not created at ${zip_path}"
+            exit 1
+          fi
+
+      - name: Create GitHub release and upload assets
+        uses: softprops/action-gh-release@6da8fa9354ddfdc4aeace5fc48d7f679b5214090 # v2.4.1
+        with:
+          tag_name: ${{ inputs.tag }}
+          target_commitish: ${{ github.sha }}
+          name: ${{ env.RESOLVED_RELEASE_NAME }}
+          body: ${{ inputs.release_notes }}
+          draft: false
+          prerelease: false
+          files: ${{ env.RELEASE_DIR }}/${{ env.ARCHIVE_NAME }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
